@@ -285,6 +285,192 @@ section{position:relative;overflow:hidden}
 
 footer{padding:2rem 6rem;border-top:1px solid rgba(74,124,95,.1);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
 footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;color:var(--text-dim)}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — HAMBURGER MENU
+═══════════════════════════════════════════════════════ */
+.nav-hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;background:none;border:none;cursor:pointer;padding:0;z-index:200}
+.nav-hamburger span{display:block;width:100%;height:1px;background:var(--text-muted);transition:all .35s cubic-bezier(.77,0,.175,1)}
+.nav-hamburger.open span:nth-child(1){transform:translateY(9.5px) rotate(45deg);background:var(--gold)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-9.5px) rotate(-45deg);background:var(--gold)}
+
+.nav-mobile-panel{position:fixed;inset:0;background:var(--bg);z-index:150;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transform:translateX(100%);transition:transform .45s cubic-bezier(.77,0,.175,1);padding:4rem 2rem}
+.nav-mobile-panel.open{transform:translateX(0)}
+.nav-mobile-panel a,.nav-mobile-panel button.theme-toggle{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--text);text-decoration:none;letter-spacing:.04em;cursor:pointer;transition:color .3s;background:none;border:none}
+.nav-mobile-panel a:hover{color:var(--gold-light)}
+.nav-mobile-panel button.theme-toggle{font-size:1.5rem;border:1px solid rgba(74,124,95,.3);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1rem;color:var(--text-muted)}
+.nav-mobile-divider{width:40px;height:1px;background:rgba(74,124,95,.3)}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — TABLET  (max 1024px)
+═══════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  /* Nav */
+  nav{padding:1.25rem 2.5rem}
+  .nav-links{gap:1.75rem}
+  .nav-links a{font-size:.68rem}
+
+  /* Hero */
+  #hero{padding:0 3rem 5rem}
+  .hero-name{font-size:clamp(3.2rem,7vw,6rem)}
+  .hero-photo{right:3rem;width:240px;height:360px}
+  .hero-scroll{right:2rem}
+
+  /* About */
+  #home-about{padding:6rem 3rem}
+  .about-inner{gap:3.5rem}
+
+  /* Skills */
+  #home-skills{padding:6rem 3rem}
+  .skills-inner{gap:3.5rem}
+
+  /* Projects */
+  #home-projects{padding:6rem 3rem}
+  .proj-header{max-width:100%;margin-bottom:3.5rem}
+
+  /* Exp */
+  #home-exp{padding:6rem 3rem}
+  .exp-inner{gap:3.5rem}
+
+  /* Testimonials */
+  #home-testimonials{padding:6rem 3rem}
+  .testi-grid{gap:1rem}
+
+  /* Contact */
+  #home-contact{padding:7rem 3rem}
+
+  /* Pages */
+  .page-hero{padding:10rem 3rem 5rem}
+  .filter-bar{padding:2rem 3rem}
+  .all-proj-grid{padding:4rem 3rem 6rem;grid-template-columns:repeat(2,1fr)}
+  .case-hero{padding:10rem 3rem 6rem}
+  .case-body{padding:4rem 3rem 6rem;gap:3.5rem}
+  .gallery-grid{padding:0 3rem 5rem}
+  .case-nav{padding:2.5rem 3rem}
+  .artist-stmt{padding:3rem 3rem}
+
+  /* Contact page */
+  .contact-page{grid-template-columns:1fr}
+  .cp-left{padding:10rem 3rem 4rem}
+  .cp-right{padding:4rem 3rem 6rem}
+
+  /* Footer */
+  footer{padding:2rem 3rem}
+
+  /* Section divider */
+  .section-divider{margin:0 3rem}
+
+  /* Case stats */
+  .case-stats{gap:2.5rem;flex-wrap:wrap}
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE  (max 768px)
+═══════════════════════════════════════════════════════ */
+@media(max-width:768px){
+  /* Hide custom cursor on touch */
+  .cursor,.cursor-ring{display:none}
+  body{cursor:auto}
+  a,button,.cta-btn,.nav-logo,.cl,.slink,.pcard,.apc,.fbtn,.skill-tag,.case-nav-btn,.sp,.theme-toggle{cursor:pointer!important}
+
+  /* Nav — hamburger */
+  nav{padding:1.1rem 1.5rem}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+
+  /* Hero */
+  #hero{padding:0 1.5rem 4rem;min-height:100svh;justify-content:center}
+  .hero-content{padding-top:8rem}
+  .hero-name{font-size:clamp(2.8rem,12vw,5rem);line-height:.95}
+  .hero-title{font-size:.72rem;margin-bottom:2rem}
+  .hero-btns{flex-direction:column;gap:.75rem;max-width:220px}
+  .hero-photo{display:none}
+  .hero-scroll{display:none}
+  .h-deco{display:none}
+
+  /* About */
+  #home-about{padding:5rem 1.5rem}
+  .about-inner{grid-template-columns:1fr;gap:2.5rem}
+  .about-img{aspect-ratio:unset;height:auto;width:100%}
+  .about-img img{width:100%;height:auto;object-fit:contain;object-position:top}
+  .about-text h2{font-size:clamp(1.8rem,7vw,2.8rem)}
+
+  /* Skills */
+  #home-skills{padding:5rem 1.5rem}
+  .skills-inner{grid-template-columns:1fr;gap:2.5rem}
+  .stat-row{gap:2rem;flex-wrap:wrap}
+
+  /* Projects */
+  #home-projects{padding:5rem 1.5rem}
+  .proj-header{flex-direction:column;align-items:flex-start;gap:1.5rem;margin-bottom:2.5rem}
+  .proj-grid{grid-template-columns:1fr;gap:1.5px}
+  .pcard{padding:2rem}
+
+  /* Experience */
+  #home-exp{padding:5rem 1.5rem}
+  .exp-inner{grid-template-columns:1fr;gap:2rem}
+
+  /* Testimonials */
+  #home-testimonials{padding:5rem 1.5rem}
+  .testi-grid{grid-template-columns:1fr;gap:1rem}
+
+  /* Contact home */
+  #home-contact{padding:5rem 1.5rem}
+  .contact-links{flex-direction:column;align-items:center;gap:.75rem}
+  .cl{width:100%;max-width:260px;justify-content:center}
+  .social-links{gap:1.25rem;flex-wrap:wrap;justify-content:center}
+
+  /* Pages generic */
+  .page-hero{padding:8rem 1.5rem 4rem}
+  .filter-bar{padding:1.25rem 1.5rem;gap:.6rem}
+  .all-proj-grid{padding:2.5rem 1.5rem 5rem;grid-template-columns:1fr;gap:1px}
+  .apc{padding:2rem}
+
+  /* Case study */
+  .case-hero{padding:8rem 1.5rem 4rem}
+  .case-stats{gap:1.5rem;flex-wrap:wrap}
+  .cs-num{font-size:2rem}
+  .case-body{grid-template-columns:1fr;gap:2rem;padding:3rem 1.5rem 5rem}
+  .case-nav{padding:2rem 1.5rem;flex-direction:column;gap:1.25rem}
+
+  /* Gallery */
+  .gallery-grid{grid-template-columns:1fr;padding:0 1.5rem 4rem}
+  .gi:nth-child(1),.gi:nth-child(4){grid-column:span 1}
+  .artist-stmt{padding:2.5rem 1.5rem}
+
+  /* Contact page */
+  .contact-page{grid-template-columns:1fr}
+  .cp-left{padding:8rem 1.5rem 3rem}
+  .cp-right{padding:3rem 1.5rem 5rem}
+  .frow{grid-template-columns:1fr}
+  .sp-row{flex-wrap:wrap;gap:1rem}
+
+  /* Footer */
+  footer{padding:1.5rem;flex-direction:column;gap:.5rem;text-align:center}
+
+  /* Section divider */
+  .section-divider{margin:0 1.5rem}
+
+  /* Back to top */
+  #backToTop{bottom:1.5rem;right:1.5rem;width:40px;height:40px}
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (max 480px)
+═══════════════════════════════════════════════════════ */
+@media(max-width:480px){
+  .hero-name{font-size:clamp(2.4rem,14vw,3.5rem)}
+  .section-heading{font-size:clamp(2rem,9vw,3rem)}
+  .about-text h2{font-size:clamp(1.6rem,8vw,2.4rem)}
+  .cta-btn{padding:.85rem 1.4rem;font-size:.65rem}
+  .stat-num{font-size:2rem}
+  nav{padding:1rem 1.25rem}
+  .nav-logo{font-size:1.15rem}
+  .tcard{padding:2rem 1.5rem}
+  .fsub{flex-direction:column;align-items:flex-start;gap:1rem}
+  .contact-links{gap:.6rem}
+}
 </style>
 </head>
 <body>
@@ -303,7 +489,24 @@ footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;color:var
     <li><a data-page="contact">Contact</a></li>
     <li><button class="theme-toggle" id="themeBtn" title="Toggle light/dark">☀</button></li>
   </ul>
+  <button class="nav-hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile navigation panel -->
+<div class="nav-mobile-panel" id="mobilePanel">
+  <a data-page="home" data-section="home-about" class="mobile-nav-link">About</a>
+  <div class="nav-mobile-divider"></div>
+  <a data-page="home" data-section="home-skills" class="mobile-nav-link">Skills</a>
+  <div class="nav-mobile-divider"></div>
+  <a data-page="projects" class="mobile-nav-link">Projects</a>
+  <div class="nav-mobile-divider"></div>
+  <a data-page="home" data-section="home-exp" class="mobile-nav-link">Experience</a>
+  <div class="nav-mobile-divider"></div>
+  <a data-page="contact" class="mobile-nav-link">Contact</a>
+  <button class="theme-toggle" id="themeBtn2" title="Toggle light/dark">☀</button>
+</div>
 
 <!-- ═══════════════════════ HOME ═══════════════════════ -->
 <div class="page active" id="page-home">
@@ -315,7 +518,7 @@ footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;color:var
     <div class="h-deco hr1 parallax-layer" data-speed=".4"></div>
     <div class="hero-content">
       <p class="hero-eyebrow reveal">Available for opportunities</p>
-      <h1 class="hero-name reveal rd1">Jayson Frias<br><em>Vitalcio</em></h1>
+      <h1 class="hero-name reveal rd1">Jayson Frias<br><em>Vitalcio[Beta]</em></h1>
       <p class="hero-title reveal rd2">Software Developer <span>/</span> Data Analyst <span>/</span> Photographer</p>
       <div class="hero-btns reveal rd3">
         <a class="cta-btn" data-page="projects">View my work <span class="arr">→</span></a>
@@ -331,8 +534,7 @@ footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;color:var
     <div class="about-inner">
       <div class="about-img-wrap reveal">
         <div class="about-img">
-          <!-- Replace with: <img src="your-photo.jpg" alt="Jayson Frias Vitalcio"/> -->
-          <div class="about-img-placeholder">Your photo here.<br/>Replace with &lt;img&gt; tag.</div>
+          <img src="https://gmsfewlslhnytdbcpsab.supabase.co/storage/v1/object/public/portfolio-images/photo.jpg" alt="Jayson Frias Vitalcio"/>
         </div>
         <div class="about-deco"></div>
       </div>
@@ -897,6 +1099,54 @@ document.getElementById('sendBtn').addEventListener('click',async()=>{
     document.getElementById('formError').style.display='block';
   }
 });
+</script>
+
+<script>
+// ── MOBILE HAMBURGER MENU ─────────────────────────────────────────────────────
+(function(){
+  const btn=document.getElementById('hamburgerBtn');
+  const panel=document.getElementById('mobilePanel');
+  if(!btn||!panel)return;
+
+  function closePanel(){
+    btn.classList.remove('open');
+    panel.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  btn.addEventListener('click',()=>{
+    const isOpen=panel.classList.contains('open');
+    if(isOpen){closePanel();}
+    else{btn.classList.add('open');panel.classList.add('open');document.body.style.overflow='hidden';}
+  });
+
+  panel.querySelectorAll('.mobile-nav-link').forEach(link=>{
+    link.addEventListener('click',()=>{ setTimeout(closePanel,120); });
+  });
+
+  // Sync mobile theme btn
+  const themeBtn2=document.getElementById('themeBtn2');
+  if(themeBtn2){
+    themeBtn2.addEventListener('click',()=>{
+      const isLight=document.body.classList.contains('light');
+      if(typeof setTheme==='function') setTheme(!isLight);
+      else{
+        document.body.classList.toggle('light',!isLight);
+        const t=document.getElementById('themeBtn');
+        if(t) t.textContent=!isLight?'☽':'☀';
+        themeBtn2.textContent=!isLight?'☽':'☀';
+        localStorage.setItem('theme',!isLight?'light':'dark');
+      }
+    });
+    if(localStorage.getItem('theme')==='light') themeBtn2.textContent='☽';
+    // Mirror icon changes from main button
+    const origBtn=document.getElementById('themeBtn');
+    if(origBtn){
+      new MutationObserver(()=>{ themeBtn2.textContent=origBtn.textContent; })
+        .observe(origBtn,{childList:true,characterData:true,subtree:true});
+    }
+  }
+})();
 </script>
 
 </body>
